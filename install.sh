@@ -4,8 +4,8 @@ sudo apt install ocserv
 sudo ufw allow 80,443/tcp
 sudo ufw allow 22/tcp
 sudo ufw enable
-sudo apt install certbot
-sudo apt install apache
+sudo apt install certbot -y
+sudo apt install apache2 -y
 sudo wget -q -O /etc/apache2/sites-available/vpn.dbhm.org.conf https://raw.githubusercontent.com/cojored/ocserv-stuff/main/vpn.dbhm.org.conf
 sudo mkdir /var/www/ocserv
 sudo chown www-data:www-data /var/www/ocserv -R
