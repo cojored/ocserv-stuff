@@ -10,8 +10,9 @@ sudo wget -q -O /etc/apache2/sites-available/vpn.dbhm.org.conf https://raw.githu
 sudo mkdir /var/www/ocserv
 sudo chown www-data:www-data /var/www/ocserv -R
 sudo a2ensite vpn.dbhm.org
-sudo systemctl reload apache2
-sudo certbot certonly --webroot --agree-tos --email admin@heppcat.com -d vpn.dbhm.org -w /var/www/ocserv
+sudo systemctl stop apache2
+sudo certbot certonly --standalone --agree-tos --email admin@heppcat.com -d vpn.dbhm.org -w /var/www/ocserv
+sudo systemctl start apache2
 sudo rm /etc/ocserv/ocserv.conf
 sudo wget -q -O /etc/ocserv/ocserv.conf https://raw.githubusercontent.com/cojored/ocserv-stuff/main/ocserv.conf
 sudo printf "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
