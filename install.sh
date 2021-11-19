@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt-get update
-sudo apt install ocserv
+sudo apt install ocserv -y
 sudo ufw allow 80,443/tcp
 sudo ufw allow 22/tcp
 sudo ufw enable
