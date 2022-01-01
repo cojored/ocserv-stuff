@@ -6,12 +6,12 @@ sudo ufw allow 22/tcp
 sudo ufw enable
 sudo apt install certbot -y
 sudo apt install apache2 -y
-sudo wget -q -O /etc/apache2/sites-available/vpn.dbhm.org.conf https://raw.githubusercontent.com/cojored/ocserv-stuff/main/vpn.dbhm.org.conf
+sudo wget -q -O /etc/apache2/sites-available/vpn.heppcat.com.conf https://raw.githubusercontent.com/cojored/ocserv-stuff/main/vpn.heppcat.com.conf
 sudo mkdir /var/www/ocserv
 sudo chown www-data:www-data /var/www/ocserv -R
-sudo a2ensite vpn.dbhm.org
+sudo a2ensite vpn.heppcat.com
 sudo systemctl stop apache2
-sudo certbot certonly --standalone --agree-tos --email admin@heppcat.com -d vpn.dbhm.org -w /var/www/ocserv
+sudo certbot certonly --standalone --agree-tos --email admin@heppcat.com -d vpn.heppcat.com -w /var/www/ocserv
 sudo systemctl start apache2
 sudo rm /etc/ocserv/ocserv.conf
 sudo wget -q -O /etc/ocserv/ocserv.conf https://raw.githubusercontent.com/cojored/ocserv-stuff/main/ocserv.conf
